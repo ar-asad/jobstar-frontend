@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 
 
-const DashboardLayout = () => {
+const Main = () => {
     return (
         <div>
             <Outlet />
@@ -9,4 +9,4 @@ const DashboardLayout = () => {
     );
 };
 
-export default DashboardLayout;
+export default Main;
