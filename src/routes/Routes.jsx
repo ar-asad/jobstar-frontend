@@ -3,6 +3,11 @@ import Main from "../layout/Main";
 import Landing from "../Pages/Landing/Landing";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
+import DashboardLayout from "../layout/DashboardLayout";
+import Stats from "../Pages/Dashboard/Stats";
+import Alljobs from "../Pages/Dashboard/Alljobs";
+import Addjobs from "../Pages/Dashboard/Addjobs";
+import Profile from "../Pages/Dashboard/Profile";
 
 
 export const router = createBrowserRouter([
@@ -22,6 +27,28 @@ export const router = createBrowserRouter([
                 path: "Signup",
                 element: <SignUp />
             }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashboardLayout />,
+        children: [
+            {
+                path: '/dashboard/stats',
+                element: <Stats />
+            },
+            {
+                path: '/dashboard/all-jobs',
+                element: <Alljobs />
+            },
+            {
+                path: '/dashboard/add-job',
+                element: <Addjobs />
+            },
+            {
+                path: '/dashboard/profile',
+                element: <Profile />
+            },
         ]
     }
 ])
