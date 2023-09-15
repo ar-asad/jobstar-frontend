@@ -1,10 +1,12 @@
+import SearchContainer from "../../components/Dashboard/SearchContainer";
 
 
 const Alljobs = () => {
     return (
         <div>
-            <h3>this is all jobs route</h3>
+            <SearchContainer />
         </div>
+
     );
 };
 

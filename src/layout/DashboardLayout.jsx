@@ -9,8 +9,12 @@ const DashboardLayout = () => {
             <div className="mx-2 mt-2">
                 <Navbar />
             </div>
-            <Sidebar />
-            <Outlet />
+            <div className="flex h-content">
+                <Sidebar />
+                <div className="border-t-[.1px] border-s-[.1px] border-slate-300 flex-1 h-full">
+                    <Outlet />
+                </div>
+            </div>
         </div>
 
         // <div className='relative min-h-screen md:flex'>

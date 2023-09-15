@@ -10,7 +10,7 @@ const Landing = () => {
                 <div className="flex items-center pt-10 ">
                     <Logo />
                 </div>
-                <div className="hero min-h-[calc(100vh-140px)] ">
+                <div className="hero min-h-[calc(100vh-90px)] ">
                     <div className="hero-content flex-col lg:flex-row-reverse ps-0">
                         <img src={banner} className=" " />
                         <div className="">
