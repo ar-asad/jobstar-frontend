@@ -1,9 +1,9 @@
 
 
-const Addjobs = () => {
+const Editjobs = () => {
     return (
         <div className="bg-white lg:mb-48 mt-8 mx-5 lg:mx-14 py-14 px-8 mb-20 shadow-md hover:shadow-xl transition duration-500">
-            <h2 className="lg:text-3xl text-3xl mb-6 text-black">Add Job</h2>
+            <h2 className="lg:text-3xl text-3xl mb-6 text-black">Edit Job</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 items-center">
                 <div>
                     <label htmlFor='position' className='block mb-2 text-normal font-medium text-slate-600'>
@@ -84,4 +84,4 @@ const Addjobs = () => {
     );
 };
 
-export default Addjobs;
+export default Editjobs;

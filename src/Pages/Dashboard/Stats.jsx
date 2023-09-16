@@ -1,9 +1,10 @@
+import StatsContainer from '../../components/Dashboard/StatsContainer';
 
 
 const Stats = () => {
     return (
         <div>
-            <h2>this is stats route</h2>
+            <StatsContainer />
         </div>
     );
 };

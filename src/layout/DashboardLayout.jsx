@@ -9,9 +9,9 @@ const DashboardLayout = () => {
             <div className="mx-2 mt-2">
                 <Navbar />
             </div>
-            <div className="flex h-content">
+            <div className="flex min-h-[calc(100vh-90px)]">
                 <Sidebar />
-                <div className="border-t-[.1px] border-s-[.1px] border-slate-300 flex-1 h-full">
+                <div className="border-t-[.1px] border-s-[.1px] border-slate-300 flex-1 h-full z-10">
                     <Outlet />
                 </div>
             </div>
