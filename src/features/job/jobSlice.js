@@ -3,7 +3,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 // Async Task Handlers
-// export const createAjob = createAsyncThunk("job/createAjob", createAJobThunk);
 // export const deleteJob = createAsyncThunk("job/deleteJob", deleteJobThunk);
 // export const updateJob = createAsyncThunk("job/updateJob", updateJobThunk);
 

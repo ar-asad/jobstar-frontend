@@ -1,12 +1,27 @@
-import { useDispatch } from "react-redux";
-import { handleChange } from "../../features/job/jobSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { clearFilters, getAllJobs, handleChange } from "../../features/allJobs/allJobsSlice";
+import { useEffect } from "react";
 
 
 const SearchContainer = () => {
+    const allJobsFilter = useSelector((state) => state.allJobs);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllJobs());
+    }, [dispatch]);
+
     const handleSearch = (e) => {
         dispatch(handleChange({ name: e.target.name, value: e.target.value }));
+        setTimeout(() => {
+            dispatch(getAllJobs());
+        }, 1300);
     };
+
+    const handleClearFilters = () => {
+        dispatch(clearFilters());
+        dispatch(getAllJobs());
+    }
 
     return (
         <div className="bg-white  mt-16 lg:mt-20 mx-5 lg:mx-14 p-8 mb-16 shadow-md hover:shadow-xl transition duration-500">
@@ -17,6 +32,7 @@ const SearchContainer = () => {
                         Search
                     </label>
                     <input
+                        value={allJobsFilter?.search}
                         // ref={emailRef}
                         onChange={handleSearch}
                         type='text'
@@ -31,12 +47,14 @@ const SearchContainer = () => {
                         Status
                     </label>
                     <select
+                        value={allJobsFilter?.searchStatus}
                         onChange={handleSearch}
+                        name="searchStatus"
                         id="status"
                         className=" w-full px-3 py-[6px] border rounded border-gray-300 focus:outline-black-500 bg-slate-100 text-gray-900">
-                        <option selected>all</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                        {allJobsFilter?.statusOptions.map((op) => (
+                            <option key={op}>{op}</option>
+                        ))}
                     </select>
                 </div>
                 <div>
@@ -44,12 +62,14 @@ const SearchContainer = () => {
                         Type
                     </label>
                     <select
+                        value={allJobsFilter?.searchType}
                         onChange={handleSearch}
+                        name="searchType"
                         id="type"
                         className=" w-full px-3 py-[6px] border rounded border-gray-300 focus:outline-black-500 bg-slate-100 text-gray-900">
-                        <option selected>all</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                        {allJobsFilter?.jobTypeOptions.map((op) => (
+                            <option key={op}>{op}</option>
+                        ))}
                     </select>
                 </div>
                 <div>
@@ -57,16 +77,20 @@ const SearchContainer = () => {
                         Sort
                     </label>
                     <select
+                        value={allJobsFilter?.sort}
                         onChange={handleSearch}
+                        name="sort"
                         id="sort"
                         className=" w-full px-3 py-[6px] border rounded border-gray-300 focus:outline-black-500 bg-slate-100 text-gray-900">
-                        <option selected>all</option>
-                        <option>Han Solo</option>
-                        <option>Greedo</option>
+                        {allJobsFilter?.sortOptions.map((op) => (
+                            <option key={op}>{op}</option>
+                        ))}
                     </select>
                 </div>
                 <div className=" mt-[29.5px]">
-                    <button className="w-full bg-blue-500 rounded px-8 py-[6px] text-white cursor-pointer
+                    <button
+                        onClick={handleClearFilters}
+                        className="w-full bg-blue-500 rounded px-8 py-[6px] text-white cursor-pointer
                            hover:bg-blue-600 transition duration-200">
                         Clear Filter
                     </button>

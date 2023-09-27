@@ -19,12 +19,12 @@ const Jobs = ({ position, company, jobLocation, jobType, createAt, status }) => 
                     <JobInfo icon={<FaLocationArrow />} text={jobLocation} />
                     <JobInfo
                         icon={<FaCalendarAlt />}
-                        text={createAt}
-                    // text={new Date(createAt).toLocaleDateString("en-US", {
-                    //     day: "numeric",
-                    //     month: "long",
-                    //     year: "numeric",
-                    // })}
+                        // text={createAt}
+                        text={new Date(createAt).toLocaleDateString("en-US", {
+                            day: "numeric",
+                            month: "long",
+                            year: "numeric",
+                        })}
                     />
                     <JobInfo icon={<FaBriefcase />} text={jobType} />
                     <div className="flex justify-start">
