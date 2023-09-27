@@ -1,6 +1,13 @@
+import { useDispatch } from "react-redux";
+import { handleChange } from "../../features/job/jobSlice";
 
 
 const SearchContainer = () => {
+    const dispatch = useDispatch();
+    const handleSearch = (e) => {
+        dispatch(handleChange({ name: e.target.name, value: e.target.value }));
+    };
+
     return (
         <div className="bg-white  mt-16 lg:mt-20 mx-5 lg:mx-14 p-8 mb-16 shadow-md hover:shadow-xl transition duration-500">
             <h2 className="text-2xl mb-6 text-black">Search Form</h2>
@@ -11,6 +18,7 @@ const SearchContainer = () => {
                     </label>
                     <input
                         // ref={emailRef}
+                        onChange={handleSearch}
                         type='text'
                         name='search'
                         id='search'
@@ -23,6 +31,7 @@ const SearchContainer = () => {
                         Status
                     </label>
                     <select
+                        onChange={handleSearch}
                         id="status"
                         className=" w-full px-3 py-[6px] border rounded border-gray-300 focus:outline-black-500 bg-slate-100 text-gray-900">
                         <option selected>all</option>
@@ -35,6 +44,7 @@ const SearchContainer = () => {
                         Type
                     </label>
                     <select
+                        onChange={handleSearch}
                         id="type"
                         className=" w-full px-3 py-[6px] border rounded border-gray-300 focus:outline-black-500 bg-slate-100 text-gray-900">
                         <option selected>all</option>
@@ -47,6 +57,7 @@ const SearchContainer = () => {
                         Sort
                     </label>
                     <select
+                        onChange={handleSearch}
                         id="sort"
                         className=" w-full px-3 py-[6px] border rounded border-gray-300 focus:outline-black-500 bg-slate-100 text-gray-900">
                         <option selected>all</option>

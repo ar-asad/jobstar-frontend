@@ -5,7 +5,6 @@ import { FaAlignLeft, FaUserCircle, FaCaretDown } from "react-icons/fa";
 
 const Navbar = () => {
     const [showLogout, setShowLogout] = useState(false);
-    console.log(showLogout)
     return (
         <div className="flex items-center justify-between bg-white px-6 lg:px-10 py-4 gap-x-4 lg:gap-x-0 sticky top-0">
             <div className="flex items-center gap-48">
