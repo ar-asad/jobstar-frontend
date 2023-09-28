@@ -1,9 +1,30 @@
 import { Link } from "react-router-dom";
 import Logo from "../../components/Logo/Logo";
+import { useDispatch, useSelector } from "react-redux";
+import { registerUser } from "../../features/user/userSlice";
 
 
 const SignUp = () => {
-    const loading = false;
+    const user = useSelector((state) => state.user);
+
+    const dispatch = useDispatch();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const userInfo = {
+            name,
+            email,
+            password
+        }
+
+        dispatch(registerUser(userInfo));
+        form.reset();
+    }
+
     return (
         <div className='flex justify-center items-center min-h-screen bg-base-300 shadow-2xl'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900  border-t-8 border-blue-500'>
@@ -14,7 +35,7 @@ const SignUp = () => {
                     <h1 className='my-3 text-3xl '>Register</h1>
                 </div>
                 <form
-                    // onSubmit={handleSubmit}
+                    onSubmit={handleSubmit}
                     noValidate=''
                     action=''
                     className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -73,7 +94,7 @@ const SignUp = () => {
                             className="w-full bg-blue-500 rounded-md px-8 py-2 text-white cursor-pointer
                         hover:bg-blue-600 transition duration-300"
                         >
-                            {loading ? (
+                            {user?.isLoading ? (
                                 'Loading...'
                             ) : (
                                 'Sign Up'

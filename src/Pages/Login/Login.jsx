@@ -1,9 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../components/Logo/Logo";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../features/user/userSlice";
+import { useEffect } from "react";
 
 
 const Login = () => {
-    const loading = false;
+    const user = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    console.log(user);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        const userInfo = {
+            email,
+            password
+        }
+
+        dispatch(loginUser(userInfo))
+        form.reset();
+    }
+
+    useEffect(() => {
+        if (user?.user) {
+            setTimeout(() => {
+                navigate("/dashboard");
+            }, 2000);
+        }
+    }, [user, navigate]);
+
+
     return (
         <div className='flex justify-center items-center min-h-screen bg-base-300 shadow-2xl'>
             <div className='flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-100 text-gray-900  border-t-8 border-blue-500'>
@@ -14,7 +44,7 @@ const Login = () => {
                     <h1 className='my-3 text-3xl '>Login</h1>
                 </div>
                 <form
-                    // onSubmit={handleSubmit}
+                    onSubmit={handleSubmit}
                     noValidate=''
                     action=''
                     className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -58,7 +88,7 @@ const Login = () => {
                             className="w-full bg-blue-500 rounded-md px-8 py-2 text-white cursor-pointer
                             hover:bg-blue-600 transition duration-300"
                         >
-                            {loading ? (
+                            {user?.isLoading ? (
                                 'Loading...'
                             ) : (
                                 'Login'

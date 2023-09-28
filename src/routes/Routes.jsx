@@ -9,6 +9,7 @@ import Alljobs from "../Pages/Dashboard/Alljobs";
 import Addjobs from "../Pages/Dashboard/Addjobs";
 import Profile from "../Pages/Dashboard/Profile";
 import Editjobs from "../Pages/Dashboard/Editjobs";
+import PrivateRoute from "./PrivateRoute";
 
 
 export const router = createBrowserRouter([
@@ -32,7 +33,7 @@ export const router = createBrowserRouter([
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout />,
+        element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
         children: [
             {
                 path: '/dashboard',
