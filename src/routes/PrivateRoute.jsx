@@ -1,15 +1,15 @@
 import { useSelector } from "react-redux";
 import { Navigate, useLocation } from "react-router-dom";
-import Loader from "../components/Shared/Loader";
+// import Loader from "../components/Shared/Loader";
 
 const PrivateRoute = ({ children }) => {
-    const { user, isLoading } = useSelector((state) => state.user);
+    const { user } = useSelector((state) => state.user);
     const location = useLocation();
 
 
-    if (isLoading) {
-        return <Loader />
-    }
+    // if (isLoading) {
+    //     // return <Loader />
+    // }
 
     if (user) {
         return children;

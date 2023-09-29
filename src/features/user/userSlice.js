@@ -2,7 +2,6 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import toast from "react-hot-toast";
 import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStorage } from "../../utils/localStorage";
 import { registerUserThunk, loginUserThunk, updateAUserThunk } from "../user/userThunk";
-import { Navigate } from "react-router-dom";
 
 
 const initialState = {
@@ -11,7 +10,7 @@ const initialState = {
   user: getUserFromLocalStorage()
 };
 
-console.log(initialState)
+
 export const registerUser = createAsyncThunk(
   "user/registerUser",
   registerUserThunk

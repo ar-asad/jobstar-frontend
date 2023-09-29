@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
                 element: <Addjobs />
             },
             {
-                path: '/dashboard/edit-job',
+                path: '/dashboard/:id',
                 element: <Editjobs />
             },
             {

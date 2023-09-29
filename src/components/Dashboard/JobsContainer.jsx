@@ -9,7 +9,7 @@ const JobsContainer = () => {
 
     return (
         allJobs.isLoading ? <Loader /> :
-            <div className=" mx-5 lg:mx-14 mb-20 ">
+            <div className=" mx-5 lg:mx-14 mb-14 ">
                 <h5 className="text-lg font-bold mb-5">
                     {allJobs.jobs?.length} Job{allJobs.jobs?.length > 1 && "s"} Found
                 </h5>

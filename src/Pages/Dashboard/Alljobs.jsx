@@ -1,5 +1,6 @@
 
 import JobsContainer from "../../components/Dashboard/JobsContainer";
+import PageBtnContainer from "../../components/Dashboard/PageBtnContainer";
 import SearchContainer from "../../components/Dashboard/SearchContainer";
 
 
@@ -8,6 +9,7 @@ const Alljobs = () => {
         <div>
             <SearchContainer />
             <JobsContainer />
+            <PageBtnContainer />
         </div>
 
     );

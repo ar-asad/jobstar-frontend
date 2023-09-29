@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import JobInfo from "./JobInfo";
 import { FaLocationArrow, FaCalendarAlt, FaBriefcase } from "react-icons/fa";
+import { useDispatch } from "react-redux";
+import { deleteJob } from "../../features/job/jobSlice";
 
 
-const Jobs = ({ position, company, jobLocation, jobType, createAt, status }) => {
+const Jobs = ({ position, company, jobLocation, jobType, createAt, status, _id }) => {
+    const dispatch = useDispatch();
+
     return (
         <div className="bg-white shadow-lg rounded">
             <div className="px-5 py-3 flex items-center gap-6">
@@ -33,15 +37,13 @@ const Jobs = ({ position, company, jobLocation, jobType, createAt, status }) => 
                 </div>
                 <div>
                     <div className="flex gap-4">
-                        <Link to="/dashboard/edit-job"
+                        <Link to={`/dashboard/${_id}`}
                             className=" bg-green-200 rounded px-4 py-1 text-sm font-normal text-green-950 cursor-pointer   hover:drop-shadow-2xl shadow-lg">Edit</Link>
                         <button
+                            onClick={() => dispatch(deleteJob(_id))}
                             type="button"
                             className=" bg-rose-200 rounded px-4 py-1 text-sm font-normal text-red-950 cursor-pointer shadow-lg hover:drop-shadow-2xl
                            "
-                        // onClick={() => {
-                        //   dispatch(deleteJob(_id));
-                        // }}
                         >
                             Delete
                         </button>

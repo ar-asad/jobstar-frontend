@@ -48,7 +48,8 @@ const Addjobs = () => {
             jobType
         }
         if (!jobData.position || !jobData.company || !jobData.jobLocation) {
-            return toast.error('Please Fill Out All Fields');
+            toast.error('Please Fill Out All Fields');
+            return;
         }
         postJobs(jobData);
         dispatch(clearValues());
@@ -141,6 +142,7 @@ const Addjobs = () => {
 
                 <div className=" mt-[29.5px] flex items-center gap-4">
                     <button
+                        type="button"
                         onClick={() => dispatch(clearValues())}
                         className=" bg-slate-500 rounded flex-1  py-[6px] text-white cursor-pointer hover:bg-gray-800 transition duration-200">
                         Clear
