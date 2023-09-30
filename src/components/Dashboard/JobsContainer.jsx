@@ -9,9 +9,9 @@ const JobsContainer = () => {
 
     return (
         allJobs.isLoading ? <Loader /> :
-            <div className=" mx-5 lg:mx-14 mb-14 ">
+            <div className=" mb-14 ">
                 <h5 className="text-lg font-bold mb-5">
-                    {allJobs.jobs?.length} Job{allJobs.jobs?.length > 1 && "s"} Found
+                    {allJobs?.totalJobs} Job{allJobs?.totalJobs?.length > 1 && "s"} Found
                 </h5>
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 rounded">
                     {allJobs.jobs?.map((job) => {

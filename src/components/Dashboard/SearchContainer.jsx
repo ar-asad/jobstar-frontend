@@ -24,7 +24,7 @@ const SearchContainer = () => {
     }
 
     return (
-        <div className="bg-white  mt-16 lg:mt-20 mx-5 lg:mx-14 p-8 mb-16 shadow-md hover:shadow-xl transition duration-500 rounded">
+        <div className="bg-white  mt-16 lg:mt-20  p-8 mb-16 shadow-md hover:shadow-xl transition duration-500 rounded">
             <h2 className="text-2xl mb-6 text-black">Search Form</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-4 items-center">
                 <div>

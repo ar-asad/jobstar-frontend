@@ -1,10 +1,16 @@
+import Logo from "../Logo/Logo";
 import Navlinks from "./Navlinks";
 
 
 const Sidebar = () => {
     return (
-        <div className="bg-white ms-2 pt-14 mb-2  w-64 hidden lg:block z-10 sticky top-0">
-            <Navlinks />
+        <div className="bg-white  mb-2 hidden lg:block">
+            <div>
+                <Logo />
+            </div>
+            <div>
+                <Navlinks />
+            </div>
         </div>
     );
 };

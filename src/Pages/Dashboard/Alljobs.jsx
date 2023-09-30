@@ -6,7 +6,7 @@ import SearchContainer from "../../components/Dashboard/SearchContainer";
 
 const Alljobs = () => {
     return (
-        <div>
+        <div className="mx-5 lg:mx-16">
             <SearchContainer />
             <JobsContainer />
             <PageBtnContainer />

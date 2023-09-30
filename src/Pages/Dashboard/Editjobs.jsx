@@ -13,7 +13,6 @@ const Editjobs = () => {
 
     const { id } = useParams()
     const editJob = allJobs?.jobs?.find(singleJob => singleJob._id === id)
-    console.log(id)
 
     const [editJobData, setEditJobData] = useState({
         position: editJob?.position || "",
